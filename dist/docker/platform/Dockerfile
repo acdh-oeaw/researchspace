@@ -1,4 +1,4 @@
-ARG JETTY_VERSION=9.4.27-jre11
+ARG JETTY_VERSION=9.4.51-jre11
 FROM jetty:${JETTY_VERSION}
 MAINTAINER ResearchSpace researchspace@britishmuseum.org
 
@@ -61,7 +61,14 @@ RUN echo "setting up platform, apps, and runtime folders" \
 	&& mkdir /var/lib/jetty/logs \
 	&& chown -R 100:0 "/var/lib/jetty/logs" \
 	&& chmod -R g=u "/var/lib/jetty/logs" \
-	&& chmod -R g+ws "/var/lib/jetty/logs"
+	&& chmod -R g+ws "/var/lib/jetty/logs" \
+	&& mkdir -p /home/jetty/.ssh \
+	&& touch /home/jetty/.ssh/ssh-privatekey \
+	&& touch /home/jetty/.ssh/ssh-publickey \
+	&& chown -R 100:101 "/home/jetty/.ssh" \
+	&& chmod 700 "/home/jetty/.ssh" \
+	&& chmod 600 "/home/jetty/.ssh/ssh-*"
+
 
 COPY --chown=100:0 jetty-logging.properties /var/lib/jetty/resources/jetty-logging.properties
 
