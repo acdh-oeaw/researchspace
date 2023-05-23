@@ -7,7 +7,7 @@ LABEL maintainer="ResearchSpace researchspace@britishmuseum.org"
 USER root
 
 # install additional packages
-# RUN apk --update add vim && rm -rf /var/cache/apk/*
+RUN apk --update add vim openssh && rm -rf /var/cache/apk/*
 
 # for backward compatibility change uid and guid to the one that was in the alpine based image
 # by default on debian id 100 is reserved by _apt user
