@@ -8,12 +8,13 @@ USER root
 
 # install additional packages
 #RUN apk --update add vim openssh && rm -rf /var/cache/apk/*
-RUN aptitude -y install openssh-client vim
+RUN apt-get update && apt-get install -y openssh-client vim && apt-get cleam
 
 # for backward compatibility change uid and guid to the one that was in the alpine based image
 # by default on debian id 100 is reserved by _apt user
 # WARNING, it can have consequences on the work of apt,apt-get.
 RUN usermod -u 1100 _apt
+RUN groupmod -g 1101 users
 RUN usermod -u 100 jetty
 RUN groupmod -g 101 jetty
 
