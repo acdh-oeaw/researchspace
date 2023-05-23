@@ -65,7 +65,7 @@ RUN echo "setting up platform, apps, and runtime folders" \
 	&& chown -R 100:0 "/var/lib/jetty/logs" \
 	&& chmod -R g=u "/var/lib/jetty/logs" \
 	&& chmod -R g+ws "/var/lib/jetty/logs" \
-	&& mkdir -p /home/jetty/.ssh \
+	&& mkdir -p /var/lib/jetty/.ssh \
 	&& touch /var/lib/jetty/.ssh/id_rsa \
 	&& touch /var/lib/jetty/.ssh/id_rsa.pub \
 	&& touch /var/lib/jetty/.ssh/known_hosts \
