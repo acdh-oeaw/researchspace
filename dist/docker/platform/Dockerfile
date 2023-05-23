@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y openssh-client vim && apt-get clean
 RUN usermod -u 1100 _apt
 RUN groupmod -g 1101 users
 RUN usermod -u 100 jetty
-RUN groupmod -g 101 jetty
+#RUN groupmod -g 101 jetty
 
 # add user jetty to group root which is used for most of the permissions
 # user jetty has uid 100
