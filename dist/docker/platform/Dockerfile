@@ -65,11 +65,12 @@ RUN echo "setting up platform, apps, and runtime folders" \
 	&& mkdir -p /home/jetty/.ssh \
 	&& touch /home/jetty/.ssh/ssh-privatekey \
 	&& touch /home/jetty/.ssh/ssh-publickey \
+	&& touch /home/jetty/.ssh/known_hosts \
 	&& chown -R 100:101 "/home/jetty/.ssh" \
 	&& chmod 700 "/home/jetty/.ssh" \
 	&& chmod 600 "/home/jetty/.ssh/ssh-privatekey" \
-	&& chmod 600 "/home/jetty/.ssh/ssh-publickey"
-
+	&& chmod 600 "/home/jetty/.ssh/ssh-publickey" \
+    && chmod 600 "/home/jetty/.ssh/known_hosts" 
 
 COPY --chown=100:0 jetty-logging.properties /var/lib/jetty/resources/jetty-logging.properties
 
