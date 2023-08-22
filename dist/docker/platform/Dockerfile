@@ -66,13 +66,9 @@ RUN echo "setting up platform, apps, and runtime folders" \
 	&& chmod -R g=u "/var/lib/jetty/logs" \
 	&& chmod -R g+ws "/var/lib/jetty/logs" \
 	&& mkdir -p /var/lib/jetty/.ssh \
-	&& touch /var/lib/jetty/.ssh/id_rsa \
-	&& touch /var/lib/jetty/.ssh/id_rsa.pub \
 	&& touch /var/lib/jetty/.ssh/known_hosts \
 	&& chown -R 100:101 "/var/lib/jetty/.ssh" \
 	&& chmod 700 "/var/lib/jetty/.ssh" \
-	&& chmod 600 "/var/lib/jetty/.ssh/id_rsa" \
-	&& chmod 600 "/var/lib/jetty/.ssh/id_rsa.pub" \
         && chmod 600 "/var/lib/jetty/.ssh/known_hosts" 
 
 COPY --chown=100:0 jetty-logging.properties /var/lib/jetty/resources/jetty-logging.properties
