@@ -68,6 +68,7 @@ RUN echo "setting up platform, apps, and runtime folders" \
 	&& mkdir -p /var/lib/jetty/.ssh \
 	&& touch /var/lib/jetty/.ssh/known_hosts \
 	&& chown -R 100:101 "/var/lib/jetty/.ssh" \
+        && chown -R 100:101 "/srv" \
 	&& chmod 700 "/var/lib/jetty/.ssh" \
         && chmod 600 "/var/lib/jetty/.ssh/known_hosts" 
 
